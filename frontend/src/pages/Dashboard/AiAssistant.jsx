@@ -4,6 +4,7 @@ import DashboardLayout from '../../components/Layouts/DashboardLayout';
 import { API_PATHS } from '../../utils/apiPaths';
 import axiosInstance from '../../utils/axiosInstance';
 import { LuSend, LuSparkles, LuUser } from 'react-icons/lu';
+import ReactMarkdown from 'react-markdown';
 
 const AiAssistant = () => {
   useUserAuth();
@@ -65,9 +66,8 @@ const AiAssistant = () => {
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`flex items-start gap-2 ${
-                  msg.role === "user" ? "justify-end" : "justify-start"
-                }`}
+                className={`flex items-start gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"
+                  }`}
               >
                 {msg.role === "ai" && (
                   <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
@@ -76,13 +76,16 @@ const AiAssistant = () => {
                 )}
 
                 <div
-                  className={`px-4 py-2 rounded-2xl max-w-[75%] text-[14px] ${
-                    msg.role === "user"
+                  className={`px-4 py-2 rounded-2xl max-w-[75%] text-[14px] ${msg.role === "user"
                       ? "bg-purple-500 text-white rounded-br-sm"
                       : "bg-gray-100 text-gray-800 rounded-bl-sm"
-                  }`}
+                    }`}
                 >
-                  {msg.text}
+                  {msg.role === "ai" ? (
+                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                  ) : (
+                    msg.text
+                  )}
                 </div>
 
                 {msg.role === "user" && (
