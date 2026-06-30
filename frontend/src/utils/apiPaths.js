@@ -25,4 +25,7 @@ export const API_PATHS = {
   IMAGE: {
     UPLOAD_IMAGE: "/api/v1/auth/upload-image",
   },
+  AI: {
+    GET_ADVICE: "/api/v1/ai/advisor",
+  },
 };

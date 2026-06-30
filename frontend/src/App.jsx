@@ -11,6 +11,7 @@ import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./content/userContext";
+import AiAssistant from "./pages/Dashboard/AiAssistant";
 import { Toaster } from "react-hot-toast";
 
 
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/dashboard" exact element={<Home />} />
             <Route path="/income" exact element={<Income />} />
             <Route path="/expense" exact element={<Expense />} />
+            <Route path="/ai-assistant" exact element={<AiAssistant />} />
           </Routes>
         </Router>
       </div>
